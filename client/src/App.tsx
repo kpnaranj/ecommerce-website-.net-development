@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuid } from "uuid";
 
 const App = () => {
@@ -6,6 +6,12 @@ const App = () => {
     { id: uuid(), name: "product1", price: 100.0 },
     { id: uuid(), name: "product2", price: 200.0 },
   ]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/products")
+      .then((response) => response.json())
+      .then((data) => setProducts(data));
+  }, []);
 
   const addProduct = () => {
     setProducts((prevState) => [

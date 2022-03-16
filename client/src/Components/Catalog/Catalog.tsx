@@ -1,6 +1,13 @@
 import { Fragment } from "react";
 import { Product } from "../../Models/products";
-
+import {
+  Avatar,
+  Button,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+} from "@mui/material";
 interface Props {
   products: Product[];
   addProduct: () => void;
@@ -9,15 +16,22 @@ interface Props {
 const Catalog = ({ products, addProduct }: Props) => {
   return (
     <Fragment>
-      <ul>
+      <List>
         {products.map((product) => (
-          <li key={product.id}>
-            {product.name} - {product.price}
-          </li>
+          <ListItem key={product.id}>
+            <ListItemAvatar>
+              <Avatar src={product.pictureUrl} />
+            </ListItemAvatar>
+            <ListItemText>
+              {product.name} - {product.price}
+            </ListItemText>
+          </ListItem>
         ))}
-      </ul>
+      </List>
 
-      <button onClick={addProduct}>Add product</button>
+      <Button variant="contained" onClick={addProduct}>
+        Add product
+      </Button>
     </Fragment>
   );
 };

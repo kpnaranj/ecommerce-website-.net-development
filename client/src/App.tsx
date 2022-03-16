@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 // Components
 import Catalog from "./Components/Catalog/Catalog";
 // Models
 import { v4 as uuid } from "uuid";
 import { Product } from "./Models/products";
+import { Typography } from "@mui/material";
 
 const App = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -29,10 +30,10 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h1 style={{ color: "blue" }}>Ecommerce Website</h1>
+    <Fragment>
+      <Typography variant="h1">Ecommerce Website</Typography>
       <Catalog products={products} addProduct={addProduct} />
-    </div>
+    </Fragment>
   );
 };
 

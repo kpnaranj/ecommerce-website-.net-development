@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 // Components
 import Catalog from "./Components/Catalog/Catalog";
 // Models
@@ -29,10 +29,10 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h1 style={{ color: "blue" }}>Ecommerce Website</h1>
+    <Fragment>
+      <h1>Ecommerce Website</h1>
       <Catalog products={products} addProduct={addProduct} />
-    </div>
+    </Fragment>
   );
 };
 

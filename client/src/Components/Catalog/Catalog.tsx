@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Product } from "../../Models/products";
-
+import Button from 'react-bootstrap/Button';
+import ProductList from "./ProductList";
 interface Props {
   products: Product[];
   addProduct: () => void;
@@ -9,15 +10,10 @@ interface Props {
 const Catalog = ({ products, addProduct }: Props) => {
   return (
     <Fragment>
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            {product.name} - {product.price}
-          </li>
-        ))}
-      </ul>
-
-      <button onClick={addProduct}>Add product</button>
+      <ProductList products={products} />
+      <Button variant="primary" onClick={addProduct}>
+        Add product
+      </Button>
     </Fragment>
   );
 };

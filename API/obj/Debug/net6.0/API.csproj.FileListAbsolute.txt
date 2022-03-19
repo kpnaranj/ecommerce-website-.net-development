@@ -52,3 +52,4 @@ C:\Users\kevin\OneDrive\Documents\UWaterloo\2022 uWaterloo\TRIYO Coop 3-kpnarsh\
 C:\Users\kevin\OneDrive\Documents\UWaterloo\2022 uWaterloo\TRIYO Coop 3-kpnarsh\Developer\Triyo.Practice\ReStore\API\bin\Debug\net6.0\SQLitePCLRaw.provider.e_sqlite3.dll
 C:\Users\kevin\OneDrive\Documents\UWaterloo\2022 uWaterloo\TRIYO Coop 3-kpnarsh\Developer\Triyo.Practice\ReStore\API\bin\Debug\net6.0\runtimes\linux-s390x\native\libe_sqlite3.so
 C:\Users\kevin\OneDrive\Documents\UWaterloo\2022 uWaterloo\TRIYO Coop 3-kpnarsh\Developer\Triyo.Practice\ReStore\API\bin\Debug\net6.0\runtimes\osx-arm64\native\libe_sqlite3.dylib
+C:\Users\kevin\OneDrive\Documents\UWaterloo\2022 uWaterloo\TRIYO Coop 3-kpnarsh\Developer\Triyo.Practice\ReStore\API\bin\Debug\net6.0\package-lock.json

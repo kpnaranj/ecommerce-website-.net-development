@@ -4,7 +4,6 @@ import Catalog from "./Components/Catalog/Catalog";
 // Models
 import { v4 as uuid } from "uuid";
 import { Product } from "./Models/products";
-import { Typography } from "@mui/material";
 
 const App = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -31,7 +30,7 @@ const App = () => {
 
   return (
     <Fragment>
-      <Typography variant="h1">Ecommerce Website</Typography>
+      <h1>Ecommerce Website</h1>
       <Catalog products={products} addProduct={addProduct} />
     </Fragment>
   );

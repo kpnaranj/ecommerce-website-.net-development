@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Product } from "../../Models/products";
-import { Button } from "@mui/material";
+import Button from 'react-bootstrap/Button';
 import ProductList from "./ProductList";
 interface Props {
   products: Product[];
@@ -11,7 +11,7 @@ const Catalog = ({ products, addProduct }: Props) => {
   return (
     <Fragment>
       <ProductList products={products} />
-      <Button variant="contained" onClick={addProduct}>
+      <Button variant="primary" onClick={addProduct}>
         Add product
       </Button>
     </Fragment>

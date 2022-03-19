@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Product } from "../../Models/products";
-import { List } from "@mui/material";
+import ListGroup from 'react-bootstrap/ListGroup';
 import ProductCard from "./ProductCard";
 
 interface Props {
@@ -10,11 +10,11 @@ interface Props {
 const ProductList = ({ products }: Props) => {
   return (
     <Fragment>
-      <List>
+      <ListGroup as="ul">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
-      </List>
+      </ListGroup>
     </Fragment>
   );
 };

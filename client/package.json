@@ -23,6 +23,9 @@
   "devDependencies": {
     "react-scripts": "5.0.0"
   },
+  "resolutions": {
+    "minimist": "upgraded version"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

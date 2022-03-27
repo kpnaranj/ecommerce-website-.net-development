@@ -1,37 +1,31 @@
-import { useState, useEffect, Fragment } from "react";
-// Components
+import { useState, Fragment } from "react";
 import Catalog from "./Components/Catalog/Catalog";
-// Models
-import { v4 as uuid } from "uuid";
-import { Product } from "./Models/products";
+import Header from "./Components/Layout/Header";
 
 const App = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [darkMode, setDarkMode] = useState(true);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/api/products")
-      .then((response) => response.json())
-      .then((data) => setProducts(data));
-  }, []);
+  const handleThemeChange = (darkMode: boolean) => {
+    if (darkMode === true) {
+      saveTheme("dark");
+    } else {
+      saveTheme("light");
+    }
+  };
 
-  const addProduct = () => {
-    setProducts((prevState) => [
-      ...prevState,
-      {
-        id: uuid(),
-        name: "product" + (prevState.length + 1),
-        price: prevState.length + 100,
-        brand: "A new brand",
-        description: "This is description",
-        pictureUrl: "http://picsum.photos/200",
-      },
-    ]);
+  const saveTheme = (theme: string) => {
+    localStorage.setItem("theme", theme);
+    document.documentElement.setAttribute("data-theme", theme);
+    setDarkMode(!darkMode);
   };
 
   return (
     <Fragment>
-      <h1>Ecommerce Website</h1>
-      <Catalog products={products} addProduct={addProduct} />
+      <Header darkMode={darkMode} handleThemeChange={handleThemeChange} />
+      <div className="appContent">
+        <h1>Ecommerce Website</h1>
+        <Catalog />
+      </div>
     </Fragment>
   );
 };

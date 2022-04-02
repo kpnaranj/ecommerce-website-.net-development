@@ -5,6 +5,11 @@ import Catalog from "./Components/Catalog/Catalog";
 import Header from "./Components/Layout/Header";
 import { Container, createTheme, CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./Components/Home/HomePage";
+import ProductDetails from "./Components/Catalog/ProductDetails";
+import AboutPage from "./Components/About/AboutPage";
+import ContactPage from "./Components/Contact/ContactPage";
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -29,7 +34,13 @@ const App = () => {
         <CssBaseline />
         <Header darkMode={darkMode} handleThemeChange={handleThemeChange} />
         <Container>
-          <Catalog />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/catalog" element={<Catalog />} />
+            <Route path="/catalog/:id" element={<ProductDetails />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
         </Container>
       </ThemeProvider>
     </Fragment>

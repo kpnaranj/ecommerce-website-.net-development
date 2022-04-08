@@ -1,4 +1,5 @@
 import { Fragment, useState, useEffect } from "react";
+import agent from "../../api/agent";
 import { Product } from "../../Models/products";
 import ProductList from "./ProductList";
 /* import { Button } from "@mui/material";
@@ -8,9 +9,7 @@ const Catalog = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
-      .then((response) => response.json())
-      .then((data) => setProducts(data));
+    agent.Catalog.list().then((products) => setProducts(products));
   }, []);
 
   return (

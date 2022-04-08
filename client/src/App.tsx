@@ -1,15 +1,18 @@
+import 'react-toastify/dist/ReactToastify.css';
 import { Fragment, useState } from "react";
-// Components
-import Catalog from "./Components/Catalog/Catalog";
-// Models
-import Header from "./Components/Layout/Header";
+
 import { Container, createTheme, CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
+import Header from "./Components/Layout/Header";
+import Catalog from "./Components/Catalog/Catalog";
 import HomePage from "./Components/Home/HomePage";
 import ProductDetails from "./Components/Catalog/ProductDetails";
 import AboutPage from "./Components/About/AboutPage";
 import ContactPage from "./Components/Contact/ContactPage";
+
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -31,6 +34,7 @@ const App = () => {
   return (
     <Fragment>
       <ThemeProvider theme={theme}>
+        <ToastContainer position="bottom-right" hideProgressBar/>
         <CssBaseline />
         <Header darkMode={darkMode} handleThemeChange={handleThemeChange} />
         <Container>

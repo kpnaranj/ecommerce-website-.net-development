@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   Divider,
   Grid,
@@ -8,11 +9,12 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+
 import { useParams } from "react-router-dom";
+import { Product } from "../../Models/products";
 import agent from "../../api/agent";
 import NotFound from "../../Errors/NotFound";
-import { Product } from "../../Models/products";
+import LoadingComponent from "../Layout/LoadingComponent";
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -28,7 +30,7 @@ const ProductDetails = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
-  if (loading) return <h3>Loading...</h3>;
+  if (loading) return <LoadingComponent message="Loading details..." />;
 
   if (!product) return <NotFound />;
 

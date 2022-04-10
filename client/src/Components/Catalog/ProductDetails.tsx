@@ -11,10 +11,11 @@ import {
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import agent from "../../api/agent";
+import NotFound from "../../Errors/NotFound";
 import { Product } from "../../Models/products";
 
 const ProductDetails = () => {
-  const { id } = useParams<{ id: string}>();
+  const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -29,7 +30,7 @@ const ProductDetails = () => {
 
   if (loading) return <h3>Loading...</h3>;
 
-  if (!product) return <h3>Product not found</h3>;
+  if (!product) return <NotFound />;
 
   return (
     <Grid container spacing={6}>

@@ -3,7 +3,7 @@ import { Fragment, useState } from "react";
 
 import { Container, createTheme, CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from "react-toastify";
 
 import Header from "./Components/Layout/Header";

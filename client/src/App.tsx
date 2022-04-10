@@ -12,6 +12,7 @@ import HomePage from "./Components/Home/HomePage";
 import ProductDetails from "./Components/Catalog/ProductDetails";
 import AboutPage from "./Components/About/AboutPage";
 import ContactPage from "./Components/Contact/ContactPage";
+import ServerError from './Errors/ServerError';
 
 
 const App = () => {
@@ -44,6 +45,7 @@ const App = () => {
             <Route path="/catalog/:id" element={<ProductDetails />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/server-error" element={<ServerError/>} />
           </Routes>
         </Container>
       </ThemeProvider>

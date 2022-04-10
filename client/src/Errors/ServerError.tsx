@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Container, Divider, Paper, Typography, Button } from "@mui/material";
-import { useNavigate, useLocation } from "react-router-dom";
-
+import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 interface ServerErrorState {
   detail: string;
   status: number;
@@ -9,7 +9,6 @@ interface ServerErrorState {
 }
 
 const ServerError = () => {
-  const navigate = useNavigate();
   const location = useLocation();
   const state = location.state as ServerErrorState;
   const isServerError = Object.keys(state).length !== 0;
@@ -29,7 +28,9 @@ const ServerError = () => {
           Server Error
         </Typography>
       )}
-      <Button onClick={() => navigate("/catalog")}>Go Back to Store</Button>
+      <Button component={Link} to="/catalog">
+        Go back to Store
+      </Button>
     </Container>
   );
 };

@@ -229,7 +229,6 @@ namespace API.Data
 
             foreach (var product in products)
             {
-                product.Id = Guid.NewGuid().ToString();
                 context.Products.Add(product);
             }
 

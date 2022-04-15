@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import {
   Avatar,
   Button,
@@ -8,15 +8,26 @@ import {
   CardHeader,
   CardMedia,
   Typography,
+  Backdrop,
+  CircularProgress,
 } from "@mui/material";
 import { Product } from "../../Models/products";
 import { Link } from "react-router-dom";
+import agent from "../../api/agent";
 
 interface Props {
   product: Product;
 }
 
 const ProductCard = ({ product }: Props) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleAddItem = (productId: number) => {
+    setLoading(true);
+    agent.Basket.addItem(productId)
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false));
+  };
   return (
     <Fragment>
       <Card>
@@ -51,7 +62,15 @@ const ProductCard = ({ product }: Props) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Add to cart</Button>
+          <Button onClick={() => handleAddItem(product.id)} size="small">
+            Add to Cart
+          </Button>
+          <Backdrop
+            sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+            open={loading}
+          >
+            <CircularProgress color="inherit" />
+          </Backdrop>
           <Button size="small" component={Link} to={`/catalog/${product.id}`}>
             View
           </Button>

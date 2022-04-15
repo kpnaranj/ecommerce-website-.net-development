@@ -14,6 +14,7 @@ import AboutPage from "./Components/About/AboutPage";
 import ContactPage from "./Components/Contact/ContactPage";
 import ServerError from "./Errors/ServerError";
 import NotFound from "./Errors/NotFound";
+import BasketPage from "./Components/Basket/BasketPage";
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -47,6 +48,7 @@ const App = () => {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/server-error" element={<ServerError />} />
+            <Route path="/basket" element={<BasketPage />} />
           </Routes>
         </Container>
       </ThemeProvider>

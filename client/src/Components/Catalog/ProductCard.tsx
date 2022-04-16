@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { Product } from "../../Models/products";
 import { Link } from "react-router-dom";
+import { useStoreContext } from "../../context/StoreContext";
 import agent from "../../api/agent";
 
 interface Props {
@@ -21,11 +22,13 @@ interface Props {
 
 const ProductCard = ({ product }: Props) => {
   const [loading, setLoading] = useState(false);
+  const { setBasket } = useStoreContext();
 
   const handleAddItem = (productId: number) => {
     setLoading(true);
     agent.Basket.addItem(productId)
-      .catch((error) => console.log(error))
+      .then((basket) => setBasket(basket))
+      .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   };
   return (

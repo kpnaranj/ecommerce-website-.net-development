@@ -15,6 +15,7 @@ import { Product } from "../../Models/products";
 import { Link } from "react-router-dom";
 import { useStoreContext } from "../../context/StoreContext";
 import agent from "../../api/agent";
+import { currencyFormat } from "../../util/util";
 
 interface Props {
   product: Product;
@@ -58,7 +59,7 @@ const ProductCard = ({ product }: Props) => {
         />
         <CardContent>
           <Typography gutterBottom color="secondary" variant="h5">
-            ${(product.price / 100).toFixed(2)}
+            {currencyFormat(product.price)}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {product.brand} / {product.type}

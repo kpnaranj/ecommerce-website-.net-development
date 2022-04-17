@@ -14,9 +14,8 @@ import {
 import { Product } from "../../Models/products";
 import { Link } from "react-router-dom";
 import { useStoreContext } from "../../context/StoreContext";
-import agent from "../../api/agent";
 import { currencyFormat } from "../../util/util";
-
+import agent from "../../api/agent";
 interface Props {
   product: Product;
 }

@@ -11,9 +11,10 @@ import {
   Typography,
   Box,
   Grid,
+  Button,
 } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
-
+import { Link } from "react-router-dom";
 import { useStoreContext } from "../../context/StoreContext";
 
 import agent from "../../api/agent";
@@ -62,7 +63,16 @@ const BasketPage = () => {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  <Box display="flex" alignItems="center">
+                  <Box
+                    component={Link}
+                    to={`/catalog/${item.productId}`}
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      textDecoration: "none",
+                      color: "black",
+                    }}
+                  >
                     <img
                       src={item.pictureUrl}
                       alt={item.name}
@@ -133,6 +143,15 @@ const BasketPage = () => {
         <Grid item xs={6}></Grid>
         <Grid item xs={6}>
           <BasketSummary />
+          <Button
+            component={Link}
+            to="/checkout"
+            variant="contained"
+            size="large"
+            fullWidth
+          >
+            Checkout
+          </Button>
         </Grid>
       </Grid>
     </Fragment>

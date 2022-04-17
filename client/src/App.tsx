@@ -19,6 +19,7 @@ import NotFound from "./Errors/NotFound";
 import BasketPage from "./Components/Basket/BasketPage";
 import LoadingComponent from "./Components/Layout/LoadingComponent";
 import agent from "./api/agent";
+import CheckoutPage from "./Components/Checkout/CheckoutPage";
 
 const App = () => {
   const { setBasket } = useStoreContext();
@@ -70,6 +71,7 @@ const App = () => {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/server-error" element={<ServerError />} />
             <Route path="/basket" element={<BasketPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
           </Routes>
         </Container>
       </ThemeProvider>
